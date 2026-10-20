@@ -1,0 +1,40 @@
+name: PCB outputs
+on:
+  push:
+    branches: [main]
+    paths: ['hardware/**', '.github/workflows/pcb.yml']
+  pull_request:
+    paths: ['hardware/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  kibot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: INTI-CMNB/KiBot@v2_k10
+        with:
+          config: hardware/config.kibot.yaml
+          dir: .
+          board: hardware/flight_controller_2_layer.kicad_pcb
+          schema: hardware/flight_controller_2_layer.kicad_sch
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pcb-outputs
+          path: outputs/
+
+      - name: Commit renders
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/img
+          git diff --cached --quiet || git commit -m "Update PCB renders [skip ci]"
+          git push

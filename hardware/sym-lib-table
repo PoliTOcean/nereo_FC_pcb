@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Logo_Simbolo")(type "KiCad")(uri "${KIPRJMOD}/lib/local/Logo_Sym.kicad_sym")(options "")(descr "Logo PoliTOcean"))
+)

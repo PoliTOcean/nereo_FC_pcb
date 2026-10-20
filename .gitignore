@@ -1,0 +1,11 @@
+*-backups/
+fp-info-cache
+*.lck
+_autosave-*
+*.kicad_prl
+outputs/
+*.gbr
+*.drl
+*.gbrjob
+/hardware/*.step
+.history/
