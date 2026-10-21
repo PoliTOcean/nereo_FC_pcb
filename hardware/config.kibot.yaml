@@ -35,7 +35,9 @@ outputs:
 
   - name: ibom
     type: ibom
-    dir: outputs/bom
+    dir: docs
+    options:
+      output: "index.%x"
 
   - name: gerbers
     type: gerber
