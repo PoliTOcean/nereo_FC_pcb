@@ -3,6 +3,8 @@
 Flight controller di Nereo (STM32F4, 2 layer).
 Firmware: [nereo_FC_firmware](https://github.com/PoliTOcean/nereo_FC_firmware)
 
+[![Interactive BOM](https://img.shields.io/badge/Interactive_BOM-open-1B7F3B)](https://politocean.github.io/nereo_FC_pcb/)
+
 | Top | Bottom |
 |---|---|
 | ![Top](docs/img/flight_controller_2_layer-top.png) | ![Bottom](docs/img/flight_controller_2_layer-bottom.png) |
